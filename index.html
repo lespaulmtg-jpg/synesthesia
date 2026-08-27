@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synesthesia — Klaus at Gap'z, Zürich · 26.09.2026</title>
+<meta name="description" content="Synesthesia: One sense fires, another responds. Music and interactive art">
+<meta property="og:title" content="Synesthesia — Klaus at Gap'z, Zürich · 26.09.2026">
+<meta property="og:description" content="One sense fires, another responds. Music and interactive art.">
+<meta property="og:image" content="https://synesthesia-zurich.vercel.app/og.png">
+<meta property="og:url" content="https://synesthesia-zurich.vercel.app">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://synesthesia-zurich.vercel.app/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#020e1f; --ink:#efeaf2; --on-accent:#1a1030; --accent:#040404; --h:268; }
+  * { margin:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+body {
+    /* Use your specific file name here */
+    /* background: url("Visuals/bk_Poster_Synesthesia.jpg") center/cover fixed no-repeat; */
+    background: url("Visuals/Poster0_Synesthesia.jpg") center/cover fixed no-repeat;
+    /* background: url("Visuals/Poster1_synesthesia.jpg") center/cover fixed no-repeat; */
+    background-color: var(--bg); /* Fallback color just in case */
+    
+    color: var(--ink); 
+    font-family: 'Bricolage Grotesque', sans-serif;
+    overflow-x: hidden;
+  }
+  body::after {
+    content:""; position:fixed; inset:0; pointer-events:none; opacity:calc(.04 + var(--p,0)*.07);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  }
+  section { display:grid; place-content:center; text-align:center; padding:clamp(4.5rem,10vh,7rem) 1.5rem; }
+  section.hero { min-height:100svh; padding:1.5rem; }
+  .eyebrow { 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  letter-spacing: .28em; 
+  font-weight: 600; 
+  color: #ffffff !important; /* Forces this to stay white */
+  text-transform: uppercase; 
+  margin-bottom: 1.1rem; 
+  transition: color .2s; 
+  }
+  .display {
+    font-family:"Fraunces",serif; text-transform:uppercase; line-height:.98;
+    font-variation-settings:"opsz" 144,"wght" var(--w,620),"SOFT" var(--s,40),"WONK" 1;
+  }
+  .display .wrd { display:inline-block; white-space:nowrap; }
+  .display .ltr { 
+  display: inline-block; 
+  /* Replace rotation with offset translation and dynamic blur */
+  transform: translate(var(--tx, 0px), var(--ty, 0px)); 
+  filter: blur(var(--blur, 0px));
+  will-change: transform, filter, color; 
+  }
+  .display .alt { color:var(--accent); transition:color .2s; }
+  h1.wordmark {
+      width: min(94vw, 640); 
+      height: clamp(7rem, 30vw, 19rem); 
+      margin: 0 auto;
+      
+      background: url("logo.png") center/contain no-repeat;
+      
+      transform: perspective(900px) scale(var(--pulse, 1)) rotateX(var(--sway, 0deg));
+      will-change: transform;
+  }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  h2.display { font-size:clamp(1.9rem,7vw,4.6rem); }
+  .body { max-width:54ch; margin:1.5rem auto 0; color:color-mix(in srgb,var(--ink)); line-height:1.65; font-size:clamp(15px,1.45vw,17.5px); }
+  .senses { font-family: 'IBM Plex Mono', monospace; 
+  font-size: clamp(13px, 1.9vw, 17px); 
+  letter-spacing: .22em; 
+  text-transform: uppercase; 
+  font-weight: 600; 
+  color: #efeaf2 !important; /* Forces this to stay white */
+  margin-top: 1.1rem; 
+  transition: color .2s; }
+  .meta { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; margin-top:1.3rem; color:color-mix(in srgb,var(--ink) 55%,transparent); }
+  .marquee { overflow:hidden; white-space:nowrap; padding:1.2rem 0; }
+  .marquee-track { display:inline-block; animation:marq 38s linear infinite; }
+  .marquee-track span { font-family:"Fraunces",serif; text-transform:uppercase; font-size:clamp(1.6rem,4.5vw,3rem); font-variation-settings:"opsz" 144,"wght" 640; margin:0 1.4rem; }
+  .marquee-track .sep { color:var(--accent); transition:color .2s; }
+  @keyframes marq { from { transform:translateX(0);} to { transform:translateX(-50%);} }
+  .num { font-family:"Fraunces",serif; font-variation-settings:"opsz" 144,"wght" 560; font-size:2.6rem; color:var(--accent); transition:color .2s; }
+  .card .rule { height:2px; background:var(--accent); opacity:.6; margin:.8rem 0 1rem; transition:background .2s; }
+  footer { border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent); padding:3.5rem 1.5rem 2.5rem; }
+  .foot { max-width:1000px; margin:0 auto; display:grid; gap:2rem; grid-template-columns:1fr; text-align:left; }
+  @media (min-width:640px){ .foot { grid-template-columns:repeat(4,1fr); } }
+  .foot h4 { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; transition:color .2s; }
+  .foot p, .foot a { font-size:14px; color:color-mix(in srgb,var(--ink)); text-decoration:none; display:block; margin-top:.25rem; }
+  .foot a:hover { color:var(--ink); }
+  .legal { max-width:1000px; margin:2.5rem auto 0; font-size:12px; color:color-mix(in srgb,var(--ink) 40%,transparent); text-align:left; }
+  .cards { display:grid; gap:1rem; grid-template-columns:1fr; max-width:1000px; margin:2.6rem auto 0; text-align:left; }
+  @media (min-width:640px){ .cards { grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); } }
+  .card { border:1px solid color-mix(in srgb,var(--ink) 12%,transparent); background:color-mix(in srgb,var(--ink) 4%,transparent); border-radius:16px; padding:1.35rem; transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease; }
+  .card:hover { border-color:color-mix(in srgb,var(--accent) 60%,transparent); box-shadow:0 0 32px 0 color-mix(in srgb,var(--accent) 22%,transparent), inset 0 0 24px 0 color-mix(in srgb,var(--accent) 6%,transparent); transform:translateY(-3px); }
+  .card.hot { border-color:color-mix(in srgb,var(--accent) 55%,transparent); position:relative; }
+  .chip { font-family:'IBM Plex Mono',monospace; position:absolute; top:-12px; left:1.2rem; background:var(--accent); color:var(--on-accent); font-size:10px; font-weight:700; letter-spacing:.12em; padding:.3rem .7rem; border-radius:999px; text-transform:uppercase; transition:background .2s; animation:chipBreathe 4s ease-in-out infinite; }
+  .card h3 { font-family:"Fraunces",serif; font-variation-settings:"opsz" 60,"wght" 660,"WONK" 1; font-size:1.2rem; text-transform:uppercase; }
+  .card p { font-size:13px; color:color-mix(in srgb,var(--ink) 55%,transparent); margin-top:.4rem; }
+  .price { font-family:"Fraunces",serif; font-variation-settings:"opsz" 144,"wght" 560; font-size:2.3rem; margin-top:.9rem; }
+  .price sup { font-size:.75rem; letter-spacing:.1em; }
+  .cta {
+    display:inline-block; margin-top:3.5rem; background:var(--accent); color:var(--on-accent);
+    font-weight:700; font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    padding:1rem 2.4rem; border-radius:999px; text-decoration:none; transition:background .2s;
+    animation:ctaBreathe 3.2s ease-in-out infinite;
+  }
+  .cta .ltr { display:inline-block; transform:perspective(420px) rotateX(var(--rx,0deg)); will-change:transform; }
+  @keyframes ctaBreathe {
+    0%,100% { box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 40%,transparent), 0 0 22px 0 color-mix(in srgb,var(--accent) 22%,transparent); }
+    50% { box-shadow:0 0 0 9px transparent, 0 0 40px 3px color-mix(in srgb,var(--accent) 38%,transparent); }
+  }
+  @keyframes chipBreathe { 0%,100% { transform:scale(1);} 50% { transform:scale(1.06);} }
+  .enter { opacity:0; transform:translateY(24px); filter:blur(5px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1), filter .7s ease; transition-delay:var(--d,0s); }
+  .enter.in { opacity:1; transform:none; filter:none; }
+  .card.enter { transform:translateY(32px) scale(.97); }
+  @media (max-width:640px){ .hint { display:none; } }
+  .ribbon { position:fixed; top:0; left:0; right:0; z-index:998; display:flex; align-items:center; justify-content:center; padding:.6rem clamp(.8rem,3vw,1.4rem); background:color-mix(in srgb,var(--bg) 42%,transparent); backdrop-filter:blur(16px) saturate(1.6); -webkit-backdrop-filter:blur(16px) saturate(1.6); border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent); box-shadow:inset 0 1px 0 color-mix(in srgb,var(--ink) 9%,transparent), 0 6px 24px color-mix(in srgb,var(--bg) 50%,transparent); transform:translateY(-105%); transition:transform .45s cubic-bezier(.2,.7,.2,1); }
+  .ribbon.show { transform:translateY(0); }
+  .ribbon-logo { height:26px; width:180px; -webkit-mask:url(logo_white.png) center/contain no-repeat; mask:url(logo_white.png) center/contain no-repeat; background:var(--ink); }
+  .sound-toggle { position:fixed; top:.7rem; right:clamp(.8rem,3vw,1.4rem); z-index:999; background:color-mix(in srgb,var(--ink) 6%,transparent); border:1px solid color-mix(in srgb,var(--ink) 18%,transparent); color:color-mix(in srgb,var(--ink) 75%,transparent); font:600 10px/1 'IBM Plex Mono',monospace; letter-spacing:.15em; text-transform:uppercase; padding:.5rem .8rem; border-radius:999px; cursor:pointer; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .sound-toggle.on { border-color:color-mix(in srgb,var(--accent) 60%,transparent); color:var(--accent); }
+  .hint { font-family:'IBM Plex Mono',monospace; position:fixed; bottom:.9rem; left:50%; translate:-50% 0; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:color-mix(in srgb,var(--ink) 40%,transparent); }
+  @media (prefers-reduced-motion:reduce){
+    .ltr { transform:none !important; }
+    .cta,.chip { animation:none; }
+    .enter { opacity:1; transform:none; filter:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div>
+    <p class="eyebrow enter">26.09.2026 <span>∿</span> Klaus at Gap'z, Zürich</p>
+    <h1 class="wordmark enter" style="--d:.08s" aria-label="Synesthesia"><span class="sr">Synesthesia</span></h1>
+    <!-- <p class="senses enter" style="--d:.18s">Sound ∿ Light ∿ Touch ∿ Taste</p> -->
+    <p class="body enter" style="--d:.25s">A day & night party, celebrating experimentation and play. <br><br> We collaborate with local artists to build rooms and dancefloors with interactive art installations. <br><br> Join us as we take control by losing it, with our workshops, interactive installations, live music and local DJ heroes.</p>
+    <a class="cta twist-cta enter" style="--d:.45s; margin-top:4rem; margin-bottom:2rem" href="https://eventfrog.ch/en/home.html">Get tickets now</a>
+  </div>
+</section>
+<section>
+  <div>
+    <h2 class="display twist enter" style="--d:.45s; margin-top: 0.1rem"> Music, paired with<br><span class="alt">everything</span><br>you can sense.</h2>
+    <p class="body enter" style="--d:.2s; margin-top: 0.5rem;"><br><br> Our aim is to infuse the senses, where sound, colour and texture become instruments so that you, our guests, become active participants. <br><br> Our mission is simple but powerful: Reality is something we shape, and not something that happens to us. Let's be playful and transform ordinary moments into something a little more extraordinary.</p>
+  </div>
+</section>
+<section>
+  <div>
+    <p class="eyebrow enter">All the artists</p>
+    <h2 class="display twist enter" style="--d:.08s">The lineup <span class="alt">is growing.</span></h2>
+  </div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Marina</span><span class="sep">∿</span><span>Cjiro</span><span class="sep">∿</span><span>Uxío</span><span class="sep">∿</span><span>Chris Herms</span><span class="sep">∿</span><span>Funkyn</span><span class="sep">∿</span><span>Greta</span><span ></div></div>
+<section id="merch">
+  <div>
+    <p class="eyebrow enter">Exclusive Drops</p>
+    <h2 class="display twist enter" style="--d:.08s margin-top: 4rem">Reserve your <span class="alt">merch</span></h2>
+    <p class="body enter" style="--d:.2s">Limited-run physical pieces, apparel, and sensory items tuned to the event. Secure yours ahead of time to collect on-site at Gap'z.</p>
+    <a class="cta twist-cta enter" style="--d:.35s; margin-top:2.2rem" href="https://docs.google.com/forms/u/0/" target="_blank" rel="noopener">Reserve merch now</a>
+  </div>
+</section>
+<footer>
+  <div class="foot">
+    <div><h4>When</h4><p>26.09.2026</p></div>
+    <div><h4>Where</h4><a href="https://maps.app.goo.gl/wsikGidQNh4UNQfh6" target="_blank" rel="noopener">Gap'z - Langstrasse 136, 8004 Zürich</a><p></div>
+    <div><h4>Tickets</h4><a href="https://eventfrog.ch/en/home.html">Eventfrog ↗</a><p>Twint, cards & more</p></div>
+    <div><h4>Sound</h4><a href="#top" onclick="document.querySelector('.sound-toggle').click();return false;">Ambience toggle — top right</a><a href="#top">Instagram ↗</a></div>
+  </div>
+  <p class="legal">© 2026 Synesthesia · Zürich</p>
+</footer>
+<header class="ribbon"><div class="ribbon-logo" role="img" aria-label="Synesthesia"></div></header>
+<button class="sound-toggle" type="button" aria-pressed="false">♪ Sound off</button>
+<p class="hint">Scroll ↓ · weight breathes · the ribbon twists lengthwise · color migrates</p>
+<script>
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Letter-split (word-grouped so words never break mid-word)
+  function lettersFrom(text) {
+    const frag = document.createDocumentFragment();
+    let word = null;
+    for (const ch of text) {
+      if (ch.trim() === "") { word = null; frag.append(ch); continue; }
+      if (!word) { word = document.createElement("span"); word.className = "wrd"; frag.append(word); }
+      const s = document.createElement("span"); s.className = "ltr"; s.textContent = ch; word.append(s);
+    }
+    return frag;
+  }
+  for (const el of document.querySelectorAll(".twist, .twist-cta")) {
+    for (const node of [...el.childNodes]) {
+      if (node.nodeType === 3) node.replaceWith(lettersFrom(node.textContent));
+      else if (node.nodeType === 1 && !node.querySelector(".ltr")) {
+        const text = node.textContent; node.textContent = ""; node.append(lettersFrom(text));
+      }
+    }
+  }
+  // Freeze letter box widths at the median weight so weight-breathing never
+  // shifts neighboring letters (no spacing wobble, no twitch).
+  function freezeBoxes() {
+    const twists = [...document.querySelectorAll(".twist, .twist-cta")];
+    twists.forEach(el => { el.style.setProperty("--w", 800); el.style.setProperty("--s", 90); });
+    for (const ltr of document.querySelectorAll(".ltr")) {
+      ltr.style.width = "auto";
+      ltr.style.width = ltr.getBoundingClientRect().width.toFixed(2) + "px";
+      ltr.style.textAlign = "center";
+    }
+    twists.forEach(el => { el.style.removeProperty("--w"); el.style.removeProperty("--s"); });
+  }
+  // Only measure once the display face is REALLY loaded (fonts.ready can fire
+  // before the CDN css is parsed → fallback-width boxes → overlapping glyphs).
+  (function ensureFrozen(tries) {
+    if (document.fonts.check('700 16px "Fraunces"')) { freezeBoxes(); return; }
+    if (tries > 40) { freezeBoxes(); return; } // give up gracefully (~12s)
+    setTimeout(() => ensureFrozen(tries + 1), 300);
+  })(0);
+  document.fonts.addEventListener("loadingdone", freezeBoxes);
+  // boxes are px measurements — refresh them whenever glyph sizes can change
+  let rsT; addEventListener("resize", () => { clearTimeout(rsT); rsT = setTimeout(freezeBoxes, 180); });
+
+  // Ribbon twist: continuous, slow rotateX undulation traveling along each word —
+  // like twisting a flexible ruler lengthwise. No triggers; amplitude breathes.
+  const headings = [...document.querySelectorAll(".twist")].map(el => ({
+    el, letters: [...el.querySelectorAll(".ltr")]
+  }));
+  const cta = document.querySelector(".twist-cta");
+  const ctaLetters = [...cta.querySelectorAll(".ltr")];
+  let ctaBoost = 0;
+  cta.addEventListener("mouseenter", () => { ctaBoost = 1; });
+  cta.addEventListener("focus", () => { ctaBoost = 1; });
+
+  // --- ambient bed (opt-in): gapless Web Audio loop of the CC0 handpan track.
+  //     Gain-node fades work on iOS (element.volume does not); suspend() = hard off.
+  let soundOn = false, actx = null, bedGain = null, bedSrc = null, bedBuf = null, loading = false;
+  const toggle = document.querySelector(".sound-toggle");
+  async function startBed() {
+    if (!actx) {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      bedGain = actx.createGain(); bedGain.gain.value = 0; bedGain.connect(actx.destination);
+    }
+    if (actx.state === "suspended") await actx.resume();
+    if (!bedBuf && !loading) {
+      loading = true;
+      const res = await fetch("Vita_Da_Cani.mp3");
+      bedBuf = await actx.decodeAudioData(await res.arrayBuffer());
+      loading = false;
+    }
+    if (!bedBuf || bedSrc || !soundOn) return;
+    bedSrc = actx.createBufferSource();
+    bedSrc.buffer = bedBuf; bedSrc.loop = true;
+    bedSrc.loopStart = 0.02; bedSrc.loopEnd = bedBuf.duration - 0.06; // trim the mp3 seam
+    bedSrc.connect(bedGain); bedSrc.start();
+    bedGain.gain.cancelScheduledValues(actx.currentTime);
+    bedGain.gain.setValueAtTime(0, actx.currentTime);
+    bedGain.gain.linearRampToValueAtTime(0.5, actx.currentTime + 2);
+  }
+  function stopBed() {
+    if (!actx) return;
+    if (bedGain) {
+      bedGain.gain.cancelScheduledValues(actx.currentTime);
+      bedGain.gain.setTargetAtTime(0, actx.currentTime, 0.15);
+    }
+    setTimeout(() => { try { if (bedSrc) { bedSrc.stop(); bedSrc.disconnect(); } } catch (e) {} bedSrc = null; if (actx) actx.suspend(); }, 600);
+  }
+  function setSound(on) {
+    soundOn = on;
+    toggle.classList.toggle("on", soundOn);
+    toggle.setAttribute("aria-pressed", String(soundOn));
+    toggle.textContent = soundOn ? "♪ Sound on" : "♪ Sound off";
+    if (soundOn) startBed(); else stopBed();
+  }
+  toggle.addEventListener("click", () => setSound(!soundOn));
+  addEventListener("keydown", (e) => { if (e.key === "m" || e.key === "M" || e.key === "Escape") setSound(e.key === "Escape" ? false : !soundOn); });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) { if (actx) actx.suspend(); } else if (soundOn && actx) actx.resume(); });
+  addEventListener("pagehide", () => { if (actx) actx.suspend(); });
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("in");
+  }), { threshold: 0.3 });
+  document.querySelectorAll(".enter").forEach(el => io.observe(el));
+
+
+  const stops = [[268,78,68],[190,75,62],[24,85,64]];
+  const lerp = (a,b,t) => a+(b-a)*t;
+  let last = performance.now(), breathe = 0;
+
+  function paint(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    breathe += dt;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, scrollY / max));
+    document.body.style.setProperty("--p", p.toFixed(3));
+    const seg = Math.min(stops.length-2, Math.floor(p*(stops.length-1)));
+    const t = p*(stops.length-1)-seg;
+    const [h,s,l] = [0,1,2].map(i => lerp(stops[seg][i], stops[seg+1][i], t));
+    document.documentElement.style.setProperty("--accent", `hsl(${h} ${s}% ${l}%)`);
+    document.documentElement.style.setProperty("--h", h.toFixed(1));
+
+    // gradient centers orbit each other around (52,32), one slow revolution ~40s
+    const orb = breathe * 0.16;
+    document.documentElement.style.setProperty("--g1x", (52 + Math.cos(orb) * 34).toFixed(2));
+    document.documentElement.style.setProperty("--g1y", (26 + Math.sin(orb) * 18).toFixed(2));
+    document.documentElement.style.setProperty("--g2x", (52 - Math.cos(orb * 0.9) * 34).toFixed(2));
+    document.documentElement.style.setProperty("--g2y", (30 - Math.sin(orb * 0.9) * 18).toFixed(2));
+
+    // hero wordmark life: expand/contract, gentle sway, accent sweep through the letters
+    const h1 = document.querySelector("h1.wordmark");
+    h1.style.setProperty("--pulse", (1 + 0.022 * Math.sin(breathe * 0.6)).toFixed(4));
+    h1.style.setProperty("--sway", (Math.sin(breathe * 0.45) * 3.2).toFixed(2) + "deg");
+    h1.style.setProperty("--sweep", (100 - ((breathe * 6) % 200)).toFixed(1));
+
+    document.querySelector(".ribbon").classList.toggle("show", scrollY > innerHeight * 0.85);
+
+    const ripple = breathe * 1.6; // slow, but visible travel
+    for (const hd of headings) {
+      const r = hd.el.getBoundingClientRect();
+      const inView = r.top < innerHeight && r.bottom > 0;
+      const v = 1 - Math.min(1, Math.abs((r.top + r.height/2)/innerHeight - 0.5) * 2);
+      const phase = breathe * 0.7 + r.top * 0.002;
+      const w = lerp(380, 750, v) + Math.sin(phase) * 45; // dramatic: thin at edges, chunky at center
+      hd.el.style.setProperty("--w", Math.round(w));
+      hd.el.style.setProperty("--s", Math.round(lerp(20, 90, v)));
+      // highlighted words breathe color in step with the weight
+      const alt = hd.el.querySelector(".alt");
+      if (alt) alt.style.color = `hsl(${(h + Math.sin(phase * 0.5) * 45 + 360) % 360} ${s}% ${l}%)`;
+      if (!inView) { continue; }
+      // c: heading center in viewport units (1 = bottom edge, 0 = top edge)
+      const c = (r.top + r.height/2) / innerHeight;
+      const n = hd.letters.length, stag = 0.18; // wave travel across the word
+      // intro: rolls 0→1 while c goes 1 → 0.55; outro: while c goes 0.45 → 0
+      const intro = Math.min(1, Math.max(0, (1 - c) / 0.4));
+      // lowest viewport position this heading can reach — the page may end
+      // before it exits, so exit-flips must finish (or not start) by then
+      const cAtMax = ((r.top + r.height/2) - (max - scrollY)) / innerHeight;
+      let outro = 0;
+      if (cAtMax <= 0.02) { // can fully exit the top → normal outro
+        outro = Math.min(1, Math.max(0, (0.28 - c) / 0.28));
+      } else if (cAtMax < 0.24) { // page ends first → rescale to finish at max scroll
+        outro = Math.min(1, Math.max(0, (0.28 - c) / (0.28 - cAtMax)));
+      } // else: bottom-locked heading — no outro, stays readable
+      const isHero = hd.el.tagName === "H1";
+      const atRest = intro >= 0.995 && outro <= 0.005;
+      hd.letters.forEach((ltr, i) => {
+        const fi = Math.min(1, Math.max(0, intro * (1 + n * stag / 8) - (i * stag) / 8));
+        const fo = Math.min(1, Math.max(0, outro * (1 + n * stag / 8) - ((n - 1 - i) * stag) / 8));
+        let a = 360 * (fi + fo);
+        // hero idle: visible undulation + vertical stretch breathing
+        if (isHero && atRest) {
+          const mob = innerWidth < 640 ? 1.5 : 1.15;
+          a += Math.sin(breathe * 0.8 - i * 0.5) * 10 * mob;
+          ltr.style.setProperty("--sy", (1 + Math.sin(breathe * 0.7 - i * 0.45 + 1.1) * 0.06 * mob).toFixed(3));
+        } else if (isHero) ltr.style.setProperty("--sy", "1");
+        ltr.style.setProperty("--rx", a.toFixed(1) + "deg");
+      });
+
+    }
+    // CTA: faint idle ribbon; hover swells it briefly, then decays
+    ctaBoost = Math.max(0, ctaBoost - dt * 0.7);
+    const ctaAmp = 5 + ctaBoost * 24;
+    ctaLetters.forEach((ltr, i) => {
+      const a = Math.sin(ripple * 1.3 - i * 0.5) * ctaAmp;
+      ltr.style.setProperty("--rx", a.toFixed(2) + "deg");
+    });
+    requestAnimationFrame(paint);
+  }
+  if (!reduced) requestAnimationFrame(paint);
+</script>
+</body>
+</html>
