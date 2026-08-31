@@ -19,9 +19,13 @@
   :root { --bg:#020e1f; --ink:#efeaf2; --on-accent:#1a1030; --accent:#040404; --h:268; }
   * { margin:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  body {
+body {
+    /* Use your specific file name here */
+    /* background: url("Visuals/bk_Poster_Synesthesia.jpg") center/cover fixed no-repeat; */
     background: url("Visuals/Poster0_Synesthesia.jpg") center/cover fixed no-repeat;
-    background-color: var(--bg); 
+    /* background: url("Visuals/Poster1_synesthesia.jpg") center/cover fixed no-repeat; */
+    background-color: var(--bg); /* Fallback color just in case */
+    
     color: var(--ink); 
     font-family: 'Bricolage Grotesque', sans-serif;
     overflow-x: hidden;
@@ -33,14 +37,14 @@
   section { display:grid; place-content:center; text-align:center; padding:clamp(4.5rem,10vh,7rem) 1.5rem; }
   section.hero { min-height:100svh; padding:1.5rem; }
   .eyebrow { 
-    font-family: 'IBM Plex Mono', monospace; 
-    font-size: 11px; 
-    letter-spacing: .28em; 
-    font-weight: 600; 
-    color: #ffffff !important;
-    text-transform: uppercase; 
-    margin-bottom: 1.1rem; 
-    transition: color .2s; 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  letter-spacing: .28em; 
+  font-weight: 600; 
+  color: #ffffff !important; /* Forces this to stay white */
+  text-transform: uppercase; 
+  margin-bottom: 1.1rem; 
+  transition: color .2s; 
   }
   .display {
     font-family:"Fraunces",serif; text-transform:uppercase; line-height:.98;
@@ -48,66 +52,47 @@
   }
   .display .wrd { display:inline-block; white-space:nowrap; }
   .display .ltr { 
-    display: inline-block; 
-    transform: translate(var(--tx, 0px), var(--ty, 0px)); 
-    filter: blur(var(--blur, 0px));
-    will-change: transform, filter, color; 
+  display: inline-block; 
+  /* Replace rotation with offset translation and dynamic blur */
+  transform: translate(var(--tx, 0px), var(--ty, 0px)); 
+  filter: blur(var(--blur, 0px));
+  will-change: transform, filter, color; 
   }
   .display .alt { color:var(--accent); transition:color .2s; }
   h1.wordmark {
-      width: min(94vw, 640px); 
+      width: min(94vw, 640); 
       height: clamp(7rem, 30vw, 19rem); 
       margin: 0 auto;
+      
       background: url("logo.png") center/contain no-repeat;
+      
       transform: perspective(900px) scale(var(--pulse, 1)) rotateX(var(--sway, 0deg));
       will-change: transform;
   }
   .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
   h2.display { font-size:clamp(1.9rem,7vw,4.6rem); }
   .body { 
-    max-width: 58ch; 
-    margin: 1.5rem auto 0; 
-    color: var(--ink); 
-    line-height: 1.6; 
-    font-size: clamp(20px, 2.2vw, 24px) !important; 
+  max-width: 58ch; 
+  margin: 1.5rem auto 0; 
+  color: var(--ink); 
+  line-height: 1.6; 
+  /* Boosted size values with !important */
+  font-size: clamp(20px, 2.2vw, 24px) !important; 
   }
-  .senses { 
-    font-family: 'IBM Plex Mono', monospace; 
-    font-size: clamp(13px, 1.9vw, 17px); 
-    letter-spacing: .22em; 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    color: #efeaf2 !important; 
-    margin-top: 1.1rem; 
-    transition: color .2s; 
-  }
+  .senses { font-family: 'IBM Plex Mono', monospace; 
+  font-size: clamp(13px, 1.9vw, 17px); 
+  letter-spacing: .22em; 
+  text-transform: uppercase; 
+  font-weight: 600; 
+  color: #efeaf2 !important; /* Forces this to stay white */
+  margin-top: 1.1rem; 
+  transition: color .2s; }
   .meta { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; margin-top:1.3rem; color:color-mix(in srgb,var(--ink) 55%,transparent); }
-  
-  /* --- REWRITTEN MARQUEE CSS FOR STACKED NAMES --- */
-  .marquee { 
-    display: flex; 
-    justify-content: center; 
-    width: 100%; 
-    padding: 0; 
-  }
-  .marquee-track { 
-    text-align: center; 
-    width: 100%; 
-    line-height: 1.8; 
-  }
-  .marquee-track span { 
-    font-family: "Fraunces", serif; 
-    text-transform: uppercase; 
-    font-size: clamp(1.6rem, 4.5vw, 3rem); 
-    font-variation-settings: "opsz" 144, "wght" 640; 
-  }
-  @media (max-width: 768px) {
-    .marquee-track span {
-      font-size: 22px;
-      line-height: 2;
-    }
-  }
-  
+  .marquee { overflow:hidden; white-space:nowrap; padding:1.2rem 0; }
+  .marquee-track { display:inline-block; animation:marq 38s linear infinite; }
+  .marquee-track span { font-family:"Fraunces",serif; text-transform:uppercase; font-size:clamp(1.6rem,4.5vw,3rem); font-variation-settings:"opsz" 144,"wght" 640; margin:0 1.4rem; }
+  .marquee-track .sep { color:var(--accent); transition:color .2s; }
+  @keyframes marq { from { transform:translateX(0);} to { transform:translateX(-50%);} }
   .num { font-family:"Fraunces",serif; font-variation-settings:"opsz" 144,"wght" 560; font-size:2.6rem; color:var(--accent); transition:color .2s; }
   .card .rule { height:2px; background:var(--accent); opacity:.6; margin:.8rem 0 1rem; transition:background .2s; }
   footer { border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent); padding:3.5rem 1.5rem 2.5rem; }
@@ -154,6 +139,32 @@
     .cta,.chip { animation:none; }
     .enter { opacity:1; transform:none; filter:none; transition:none; }
   }
+  /* FIX: Forces all elements below the marquee to be visible immediately */
+  @media screen and (max-width: 768px) {
+    /* 1. Force hidden/lazy-loaded elements to display instantly on mobile */
+    [data-aos], 
+    .reveal, 
+    .fade-in,
+    section,
+    div {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    /* 2. Prevent parent wrapper height collapsing */
+    body, 
+    main, 
+    #wrapper, 
+    #page, 
+    section {
+      height: auto !important;
+      min-height: 100% !important;
+      overflow: visible !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -161,6 +172,7 @@
   <div>
     <p class="eyebrow enter">26.09.2026 <span>∿</span> Klaus at Gap'z, Zürich</p>
     <h1 class="wordmark enter" style="--d:.08s" aria-label="Synesthesia"><span class="sr">Synesthesia</span></h1>
+    <!-- <p class="senses enter" style="--d:.18s">Sound ∿ Light ∿ Touch ∿ Taste</p> -->
     <p class="body enter" style="--d:.25s">A day & night party, celebrating experimentation and play. <br><br> We collaborate with local artists to build rooms and dancefloors that infuse the senses, where sound and colour become instruments that you can tune. <br><br> Join us as we take control by losing it, with our workshops, interactive installations, live music and local DJ heroes.</p>
     <a class="cta twist-cta enter" style="--d:.45s; margin-top:4rem; margin-bottom:2rem" href="https://eventfrog.ch/en/home.html">Get tickets now</a>
   </div>
@@ -168,13 +180,47 @@
 
 <section>
   <div>
-    <p class="eyebrow enter">Artists and workshops</p>
-    <h2 class="display twist enter" style="--d:.08s">The lineup <span class="alt">is growing.</span></h2>
+    <p class="eyebrow">Artists and workshops</p>
+    <h2 class="display">The lineup <span class="alt">is growing.</span></h2>
   </div>
 </section>
 
-<!-- Added style to keep the marquee section tight under the title above -->
-<section style="padding-top: 0;">
+<style>
+  /* Resets the outer container so it takes up proper space */
+  .marquee {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: auto !important;         
+    overflow: visible !important;    
+    position: relative !important;   
+    padding: 0 !important;           
+    margin-top: 0 !important;        
+  }
+
+  /* Resets the track so it pushes page content down */
+  .marquee-track {
+    animation: none !important;        
+    white-space: normal !important;    
+    display: block !important;         
+    text-align: center !important;     
+    width: 100% !important;
+    margin: 0 auto !important;       
+    padding-top: 0 !important;       
+    line-height: 1.8; 
+    position: relative !important;   
+  }
+
+  /* --- NEW: Mobile Font Size --- */
+  @media (max-width: 768px) {
+    .marquee-track span {
+      font-size: 22px !important; /* Change this number to adjust mobile size */
+      line-height: 2;             /* Gives the larger text room to breathe */
+    }
+  }
+</style>
+
+<section style="margin-top: 0 !important; padding-top: 0 !important;">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span>Badbushka</span><br>
@@ -194,7 +240,14 @@
     <p class="body enter" style="--d:.2s; margin-top: 0.5rem;"><br><br> Our message is simple: Reality does not just happens to us, it's something we shape, so let's be playful and transform ordinary moments into something a little more extraordinary. </p>
   </div>
 </section>
-
+<!-- <section id="merch">
+  <div>
+    <p class="eyebrow enter">Exclusive Drops</p>
+    <h2 class="display twist enter" style="--d:.08s margin-top: 4rem">Reserve your <span class="alt">merch</span></h2>
+    <p class="body enter" style="--d:.2s">Limited-run pieces and apparel tuned to the event. Secure yours ahead of time to collect on-site at Gap'z.</p>
+    <a class="cta twist-cta enter" style="--d:.35s; margin-top:2.2rem" href="https://docs.google.com/forms/u/0/" target="_blank" rel="noopener">Reserve merch now</a>
+  </div>
+</section> -->
 <footer>
   <div class="foot">
     <div><h4>When</h4><p>26.09.2026</p></div>
@@ -207,10 +260,10 @@
 <header class="ribbon"><div class="ribbon-logo" role="img" aria-label="Synesthesia"></div></header>
 <button class="sound-toggle" type="button" aria-pressed="false">♪ Sound off</button>
 <p class="hint">Scroll ↓ · weight breathes · the ribbon twists lengthwise · color migrates</p>
-
 <script>
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Letter-split (word-grouped so words never break mid-word)
   function lettersFrom(text) {
     const frag = document.createDocumentFragment();
     let word = null;
@@ -229,7 +282,8 @@
       }
     }
   }
-
+  // Freeze letter box widths at the median weight so weight-breathing never
+  // shifts neighboring letters (no spacing wobble, no twitch).
   function freezeBoxes() {
     const twists = [...document.querySelectorAll(".twist, .twist-cta")];
     twists.forEach(el => { el.style.setProperty("--w", 800); el.style.setProperty("--s", 90); });
@@ -240,16 +294,19 @@
     }
     twists.forEach(el => { el.style.removeProperty("--w"); el.style.removeProperty("--s"); });
   }
-
+  // Only measure once the display face is REALLY loaded (fonts.ready can fire
+  // before the CDN css is parsed → fallback-width boxes → overlapping glyphs).
   (function ensureFrozen(tries) {
     if (document.fonts.check('700 16px "Fraunces"')) { freezeBoxes(); return; }
-    if (tries > 40) { freezeBoxes(); return; } 
+    if (tries > 40) { freezeBoxes(); return; } // give up gracefully (~12s)
     setTimeout(() => ensureFrozen(tries + 1), 300);
   })(0);
-  
   document.fonts.addEventListener("loadingdone", freezeBoxes);
+  // boxes are px measurements — refresh them whenever glyph sizes can change
   let rsT; addEventListener("resize", () => { clearTimeout(rsT); rsT = setTimeout(freezeBoxes, 180); });
 
+  // Ribbon twist: continuous, slow rotateX undulation traveling along each word —
+  // like twisting a flexible ruler lengthwise. No triggers; amplitude breathes.
   const headings = [...document.querySelectorAll(".twist")].map(el => ({
     el, letters: [...el.querySelectorAll(".ltr")]
   }));
@@ -259,9 +316,10 @@
   cta.addEventListener("mouseenter", () => { ctaBoost = 1; });
   cta.addEventListener("focus", () => { ctaBoost = 1; });
 
+  // --- ambient bed (opt-in): gapless Web Audio loop of the CC0 handpan track.
+  //     Gain-node fades work on iOS (element.volume does not); suspend() = hard off.
   let soundOn = false, actx = null, bedGain = null, bedSrc = null, bedBuf = null, loading = false;
   const toggle = document.querySelector(".sound-toggle");
-  
   async function startBed() {
     if (!actx) {
       actx = new (window.AudioContext || window.webkitAudioContext)();
@@ -277,7 +335,43 @@
     if (!bedBuf || bedSrc || !soundOn) return;
     bedSrc = actx.createBufferSource();
     bedSrc.buffer = bedBuf; bedSrc.loop = true;
-    bedSrc.loopStart = 0.02; bedSrc.loopEnd = bedBuf.duration - 0.06; 
+    bedSrc.loopStart = 0.02; bedSrc.loopEnd = bedBuf.duration - 0.06; // trim the mp3 seam
+    bedSrc.connect(bedGain); bedSrc.start();
+    bedGain.gain.cancelScheduledValues(actx.currentTime);
+    bedGain.gain.setValueAtTime(0, actx.currentTime);
+    bedGain.gain.linearRampToValueAtTime(0.5, actx.currentTime + 2);
+  }
+  function stopBed() {
+    if (!actx) return;
+    if (bedGain) {
+      bedGain.gain.cancelScheduledValues(actx.currentTime);
+      bedGain.gain.setTargetAtTime(0, actx.currentTime, 0.15);
+    }
+    setTimeout(() => { try { if (bedSrc) { bedSrc.stop(); bedSrc.disconnect(); } } catch (e) {} bedSrc = null; if (actx) actx.suspend(); }, 600);
+  }
+  function setSound(on) {
+    soundOn = on;
+    toggle.classList.toggle("on", soundOn);
+    toggle.setAttribute("aria-pressed", String(soundOn));
+    toggle.textContent = soundOn ? "♪ Sound on" : "♪ Sound off";
+    if (soundOn) startBed(); else stopBed();
+  }
+  async function startBed() {
+    if (!actx) {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      bedGain = actx.createGain(); bedGain.gain.value = 0; bedGain.connect(actx.destination);
+    }
+    if (actx.state === "suspended") await actx.resume();
+    if (!bedBuf && !loading) {
+      loading = true;
+      const res = await fetch("Vita_Da_Cani.mp3");
+      bedBuf = await actx.decodeAudioData(await res.arrayBuffer());
+      loading = false;
+    }
+    if (!bedBuf || bedSrc || !soundOn) return;
+    bedSrc = actx.createBufferSource();
+    bedSrc.buffer = bedBuf; bedSrc.loop = true;
+    bedSrc.loopStart = 0.02; bedSrc.loopEnd = bedBuf.duration - 0.06; // trim the mp3 seam
     bedSrc.connect(bedGain); bedSrc.start();
     bedGain.gain.cancelScheduledValues(actx.currentTime);
     bedGain.gain.setValueAtTime(0, actx.currentTime);
@@ -301,7 +395,7 @@
     if (soundOn) startBed(); else stopBed();
   }
 
-  // Preload audio
+  // --- UPDATED BOTTOM SECTION ---
   fetch("Vita_Da_Cani.mp3");
 
   const handleFirstInteraction = () => {
@@ -315,6 +409,18 @@
     document.addEventListener(evt, handleFirstInteraction);
   });
   
+  // This unlocks the audio the moment the user clicks anywhere on the page
+  document.body.addEventListener('click', function() {
+    const myAudio = document.getElementById('myAudioElement');
+    
+    // Check if audio is paused to prevent trying to play it multiple times
+    if (myAudio.paused) {
+      myAudio.play().catch(error => {
+        console.log("Audio playback failed:", error);
+      });
+    }
+  }, { once: true }); // The 'once' parameter ensures this only fires on the very first click
+
   toggle.addEventListener("click", () => setSound(!soundOn));
   addEventListener("keydown", (e) => { if (e.key === "m" || e.key === "M" || e.key === "Escape") setSound(e.key === "Escape" ? false : !soundOn); });
   document.addEventListener("visibilitychange", () => { if (document.hidden) { if (actx) actx.suspend(); } else if (soundOn && actx) actx.resume(); });
@@ -324,6 +430,7 @@
     if (e.isIntersecting) e.target.classList.add("in");
   }), { threshold: 0.3 });
   document.querySelectorAll(".enter").forEach(el => io.observe(el));
+
 
   const stops = [[268,78,68],[190,75,62],[24,85,64]];
   const lerp = (a,b,t) => a+(b-a)*t;
@@ -341,12 +448,14 @@
     document.documentElement.style.setProperty("--accent", `hsl(${h} ${s}% ${l}%)`);
     document.documentElement.style.setProperty("--h", h.toFixed(1));
 
+    // gradient centers orbit each other around (52,32), one slow revolution ~40s
     const orb = breathe * 0.16;
     document.documentElement.style.setProperty("--g1x", (52 + Math.cos(orb) * 34).toFixed(2));
     document.documentElement.style.setProperty("--g1y", (26 + Math.sin(orb) * 18).toFixed(2));
     document.documentElement.style.setProperty("--g2x", (52 - Math.cos(orb * 0.9) * 34).toFixed(2));
     document.documentElement.style.setProperty("--g2y", (30 - Math.sin(orb * 0.9) * 18).toFixed(2));
 
+    // hero wordmark life: expand/contract, gentle sway, accent sweep through the letters
     const h1 = document.querySelector("h1.wordmark");
     h1.style.setProperty("--pulse", (1 + 0.022 * Math.sin(breathe * 0.6)).toFixed(4));
     h1.style.setProperty("--sway", (Math.sin(breathe * 0.45) * 3.2).toFixed(2) + "deg");
@@ -354,37 +463,40 @@
 
     document.querySelector(".ribbon").classList.toggle("show", scrollY > innerHeight * 0.85);
 
-    const ripple = breathe * 1.6; 
+    const ripple = breathe * 1.6; // slow, but visible travel
     for (const hd of headings) {
       const r = hd.el.getBoundingClientRect();
       const inView = r.top < innerHeight && r.bottom > 0;
       const v = 1 - Math.min(1, Math.abs((r.top + r.height/2)/innerHeight - 0.5) * 2);
       const phase = breathe * 0.7 + r.top * 0.002;
-      const w = lerp(380, 750, v) + Math.sin(phase) * 45; 
+      const w = lerp(380, 750, v) + Math.sin(phase) * 45; // dramatic: thin at edges, chunky at center
       hd.el.style.setProperty("--w", Math.round(w));
       hd.el.style.setProperty("--s", Math.round(lerp(20, 90, v)));
-      
+      // highlighted words breathe color in step with the weight
       const alt = hd.el.querySelector(".alt");
       if (alt) alt.style.color = `hsl(${(h + Math.sin(phase * 0.5) * 45 + 360) % 360} ${s}% ${l}%)`;
       if (!inView) { continue; }
-      
+      // c: heading center in viewport units (1 = bottom edge, 0 = top edge)
       const c = (r.top + r.height/2) / innerHeight;
-      const n = hd.letters.length, stag = 0.18; 
+      const n = hd.letters.length, stag = 0.18; // wave travel across the word
+      // intro: rolls 0→1 while c goes 1 → 0.55; outro: while c goes 0.45 → 0
       const intro = Math.min(1, Math.max(0, (1 - c) / 0.4));
-      
+      // lowest viewport position this heading can reach — the page may end
+      // before it exits, so exit-flips must finish (or not start) by then
       const cAtMax = ((r.top + r.height/2) - (max - scrollY)) / innerHeight;
       let outro = 0;
-      if (cAtMax <= 0.02) { 
+      if (cAtMax <= 0.02) { // can fully exit the top → normal outro
         outro = Math.min(1, Math.max(0, (0.28 - c) / 0.28));
-      } else if (cAtMax < 0.24) { 
+      } else if (cAtMax < 0.24) { // page ends first → rescale to finish at max scroll
         outro = Math.min(1, Math.max(0, (0.28 - c) / (0.28 - cAtMax)));
-      } 
+      } // else: bottom-locked heading — no outro, stays readable
       const isHero = hd.el.tagName === "H1";
       const atRest = intro >= 0.995 && outro <= 0.005;
       hd.letters.forEach((ltr, i) => {
         const fi = Math.min(1, Math.max(0, intro * (1 + n * stag / 8) - (i * stag) / 8));
         const fo = Math.min(1, Math.max(0, outro * (1 + n * stag / 8) - ((n - 1 - i) * stag) / 8));
         let a = 360 * (fi + fo);
+        // hero idle: visible undulation + vertical stretch breathing
         if (isHero && atRest) {
           const mob = innerWidth < 640 ? 1.5 : 1.15;
           a += Math.sin(breathe * 0.8 - i * 0.5) * 10 * mob;
@@ -392,8 +504,9 @@
         } else if (isHero) ltr.style.setProperty("--sy", "1");
         ltr.style.setProperty("--rx", a.toFixed(1) + "deg");
       });
+
     }
-    
+    // CTA: faint idle ribbon; hover swells it briefly, then decays
     ctaBoost = Math.max(0, ctaBoost - dt * 0.7);
     const ctaAmp = 5 + ctaBoost * 24;
     ctaLetters.forEach((ltr, i) => {
