@@ -147,14 +147,8 @@ body {
     <p class="eyebrow enter">26.09.2026 <span>∿</span> Klaus at Gap'z, Zürich</p>
     <h1 class="wordmark enter" style="--d:.08s" aria-label="Synesthesia"><span class="sr">Synesthesia</span></h1>
     <!-- <p class="senses enter" style="--d:.18s">Sound ∿ Light ∿ Touch ∿ Taste</p> -->
-    <p class="body enter" style="--d:.25s">A day & night party, celebrating experimentation and play. <br><br> We collaborate with local artists to build rooms and dancefloors that infuse the senses, where sound, colour and texture become instruments that you can tune. <br><br> Join us as we take control by losing it, with our workshops, interactive installations, live music and local DJ heroes.</p>
+    <p class="body enter" style="--d:.25s">A day & night party, celebrating experimentation and play. <br><br> We collaborate with local artists to build rooms and dancefloors that infuse the senses, where sound and colour become instruments that you can tune. <br><br> Join us as we take control by losing it, with our workshops, interactive installations, live music and local DJ heroes.</p>
     <a class="cta twist-cta enter" style="--d:.45s; margin-top:4rem; margin-bottom:2rem" href="https://eventfrog.ch/en/home.html">Get tickets now</a>
-  </div>
-</section>
-<section>
-  <div>
-    <h2 class="display twist enter" style="--d:.45s; margin-top: 0.1rem"> Play with<br><span class="alt">your senses</span></h2>
-    <p class="body enter" style="--d:.2s; margin-top: 0.5rem;"><br><br> Our message is simple: Reality does not just happens to us, it's something we shape, so let's be playful and transform ordinary moments into something a little more extraordinary. </p>
   </div>
 </section>
 <section>
@@ -163,19 +157,67 @@ body {
     <h2 class="display twist enter" style="--d:.08s">The lineup <span class="alt">is growing.</span></h2>
   </div>
 </section>
-<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Marina</span><span class="sep">∿</span><span>Cjiro</span><span class="sep">∿</span><span>Uxío</span><span class="sep">∿</span><span>Chris Herms</span><span class="sep">∿</span><span>Funkyn</span><span class="sep">∿</span><span>Greta</span><span ></div></div>
-<section id="merch">
+
+<style>
+  /* Resets the outer container so it takes up proper space */
+  .marquee {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: auto !important;         
+    overflow: visible !important;    
+    position: relative !important;   
+    padding: 0 !important;           /* Removed the top/bottom padding */
+    margin-top: 0 !important;        /* Forces the top margin to zero */
+  }
+
+  /* Resets the track so it pushes page content down */
+  .marquee-track {
+    animation: none !important;        
+    white-space: normal !important;    
+    display: block !important;         
+    text-align: center !important;     
+    width: 100% !important;
+    margin: 0 auto !important;       /* Forces top/bottom margin to zero */
+    padding-top: 0 !important;       
+    line-height: 1.8; 
+    position: relative !important;   
+  }
+</style>
+
+<!-- Added styles directly to the section to kill any default spacing -->
+<section style="margin-top: 0 !important; padding-top: 0 !important;">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Badbushka</span><br>
+      <span>Cjiro</span><br>
+      <span>Chris Herms</span><br>
+      <span>CLA Muse</span><br>
+      <span>Funkyn</span><br>
+      <span>Unbound</span><br>
+      <span>Uxío</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <h2 class="display twist enter" style="--d:.45s; margin-top: 0.1rem"> Play with<br><span class="alt">your senses</span></h2>
+    <p class="body enter" style="--d:.2s; margin-top: 0.5rem;"><br><br> Our message is simple: Reality does not just happens to us, it's something we shape, so let's be playful and transform ordinary moments into something a little more extraordinary. </p>
+  </div>
+</section>
+<!-- <section id="merch">
   <div>
     <p class="eyebrow enter">Exclusive Drops</p>
     <h2 class="display twist enter" style="--d:.08s margin-top: 4rem">Reserve your <span class="alt">merch</span></h2>
     <p class="body enter" style="--d:.2s">Limited-run pieces and apparel tuned to the event. Secure yours ahead of time to collect on-site at Gap'z.</p>
     <a class="cta twist-cta enter" style="--d:.35s; margin-top:2.2rem" href="https://docs.google.com/forms/u/0/" target="_blank" rel="noopener">Reserve merch now</a>
   </div>
-</section>
+</section> -->
 <footer>
   <div class="foot">
     <div><h4>When</h4><p>26.09.2026</p></div>
-    <div><h4>Where</h4><a href="https://maps.app.goo.gl/wsikGidQNh4UNQfh6" target="_blank" rel="noopener">Gap'z - Langstrasse 136, 8004 Zürich</a><p></div>
+    <div><h4>Where</h4><a href="https://maps.app.goo.gl/wsikGidQNh4UNQfh6" target="_blank" rel="noopener">Klaus at Gap'z - Langstrasse 136, 8004 Zürich</a><p></div>
     <div><h4>Tickets</h4><a href="https://eventfrog.ch/en/home.html">Eventfrog ↗</a><p>Twint, cards & more</p></div>
     <div><h4>Sound</h4><a href="#top" onclick="document.querySelector('.sound-toggle').click();return false;">Ambience toggle — top right</a><a href="#top">Instagram ↗</a></div>
   </div>
@@ -280,6 +322,71 @@ body {
     toggle.textContent = soundOn ? "♪ Sound on" : "♪ Sound off";
     if (soundOn) startBed(); else stopBed();
   }
+  async function startBed() {
+    if (!actx) {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      bedGain = actx.createGain(); bedGain.gain.value = 0; bedGain.connect(actx.destination);
+    }
+    if (actx.state === "suspended") await actx.resume();
+    if (!bedBuf && !loading) {
+      loading = true;
+      const res = await fetch("Vita_Da_Cani.mp3");
+      bedBuf = await actx.decodeAudioData(await res.arrayBuffer());
+      loading = false;
+    }
+    if (!bedBuf || bedSrc || !soundOn) return;
+    bedSrc = actx.createBufferSource();
+    bedSrc.buffer = bedBuf; bedSrc.loop = true;
+    bedSrc.loopStart = 0.02; bedSrc.loopEnd = bedBuf.duration - 0.06; // trim the mp3 seam
+    bedSrc.connect(bedGain); bedSrc.start();
+    bedGain.gain.cancelScheduledValues(actx.currentTime);
+    bedGain.gain.setValueAtTime(0, actx.currentTime);
+    bedGain.gain.linearRampToValueAtTime(0.5, actx.currentTime + 2);
+  }
+
+  function stopBed() {
+    if (!actx) return;
+    if (bedGain) {
+      bedGain.gain.cancelScheduledValues(actx.currentTime);
+      bedGain.gain.setTargetAtTime(0, actx.currentTime, 0.15);
+    }
+    setTimeout(() => { try { if (bedSrc) { bedSrc.stop(); bedSrc.disconnect(); } } catch (e) {} bedSrc = null; if (actx) actx.suspend(); }, 600);
+  }
+
+  function setSound(on) {
+    soundOn = on;
+    toggle.classList.toggle("on", soundOn);
+    toggle.setAttribute("aria-pressed", String(soundOn));
+    toggle.textContent = soundOn ? "♪ Sound on" : "♪ Sound off";
+    if (soundOn) startBed(); else stopBed();
+  }
+
+  // --- UPDATED BOTTOM SECTION ---
+  fetch("Vita_Da_Cani.mp3");
+
+  const handleFirstInteraction = () => {
+    if (soundOn) startBed();
+    ['click', 'touchstart', 'keydown'].forEach(evt => {
+      document.removeEventListener(evt, handleFirstInteraction);
+    });
+  };
+
+  ['click', 'touchstart', 'keydown'].forEach(evt => {
+    document.addEventListener(evt, handleFirstInteraction);
+  });
+  
+  // This unlocks the audio the moment the user clicks anywhere on the page
+  document.body.addEventListener('click', function() {
+    const myAudio = document.getElementById('myAudioElement');
+    
+    // Check if audio is paused to prevent trying to play it multiple times
+    if (myAudio.paused) {
+      myAudio.play().catch(error => {
+        console.log("Audio playback failed:", error);
+      });
+    }
+  }, { once: true }); // The 'once' parameter ensures this only fires on the very first click
+
   toggle.addEventListener("click", () => setSound(!soundOn));
   addEventListener("keydown", (e) => { if (e.key === "m" || e.key === "M" || e.key === "Escape") setSound(e.key === "Escape" ? false : !soundOn); });
   document.addEventListener("visibilitychange", () => { if (document.hidden) { if (actx) actx.suspend(); } else if (soundOn && actx) actx.resume(); });
