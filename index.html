@@ -139,6 +139,32 @@ body {
     .cta,.chip { animation:none; }
     .enter { opacity:1; transform:none; filter:none; transition:none; }
   }
+  /* FIX: Forces all elements below the marquee to be visible immediately */
+  @media screen and (max-width: 768px) {
+    /* 1. Force hidden/lazy-loaded elements to display instantly on mobile */
+    [data-aos], 
+    .reveal, 
+    .fade-in,
+    section,
+    div {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    /* 2. Prevent parent wrapper height collapsing */
+    body, 
+    main, 
+    #wrapper, 
+    #page, 
+    section {
+      height: auto !important;
+      min-height: 100% !important;
+      overflow: visible !important;
+    }
+  }
 </style>
 </head>
 <body>
