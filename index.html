@@ -177,10 +177,11 @@ body {
     <a class="cta twist-cta enter" style="--d:.45s; margin-top:4rem; margin-bottom:2rem" href="https://eventfrog.ch/en/home.html">Get tickets now</a>
   </div>
 </section>
+
 <section>
   <div>
-    <p class="eyebrow enter">Artists and workshops</p>
-    <h2 class="display twist enter" style="--d:.08s">The lineup <span class="alt">is growing.</span></h2>
+    <p class="eyebrow">Artists and workshops</p>
+    <h2 class="display">The lineup <span class="alt">is growing.</span></h2>
   </div>
 </section>
 
@@ -193,8 +194,8 @@ body {
     height: auto !important;         
     overflow: visible !important;    
     position: relative !important;   
-    padding: 0 !important;           /* Removed the top/bottom padding */
-    margin-top: 0 !important;        /* Forces the top margin to zero */
+    padding: 0 !important;           
+    margin-top: 0 !important;        
   }
 
   /* Resets the track so it pushes page content down */
@@ -204,14 +205,21 @@ body {
     display: block !important;         
     text-align: center !important;     
     width: 100% !important;
-    margin: 0 auto !important;       /* Forces top/bottom margin to zero */
+    margin: 0 auto !important;       
     padding-top: 0 !important;       
     line-height: 1.8; 
     position: relative !important;   
   }
+
+  /* --- NEW: Mobile Font Size --- */
+  @media (max-width: 768px) {
+    .marquee-track span {
+      font-size: 22px !important; /* Change this number to adjust mobile size */
+      line-height: 2;             /* Gives the larger text room to breathe */
+    }
+  }
 </style>
 
-<!-- Added styles directly to the section to kill any default spacing -->
 <section style="margin-top: 0 !important; padding-top: 0 !important;">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
