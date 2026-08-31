@@ -159,7 +159,7 @@ body {
 </section>
 
 <style>
-  /* Reset outer container */
+  /* Resets the outer container so it takes up proper space */
   .marquee {
     display: flex !important;
     justify-content: center !important;
@@ -167,42 +167,27 @@ body {
     height: auto !important;         
     overflow: visible !important;    
     position: relative !important;   
-    padding: 0 !important;           
-    margin-top: 0 !important;        
+    padding: 0 !important;           /* Removed the top/bottom padding */
+    margin-top: 0 !important;        /* Forces the top margin to zero */
   }
 
-  /* Force layout rendering immediately */
+  /* Resets the track so it pushes page content down */
   .marquee-track {
     animation: none !important;        
     white-space: normal !important;    
     display: block !important;         
     text-align: center !important;     
     width: 100% !important;
-    margin: 0 auto !important;       
+    margin: 0 auto !important;       /* Forces top/bottom margin to zero */
     padding-top: 0 !important;       
-    line-height: 1.8 !important; 
+    line-height: 1.8; 
     position: relative !important;   
-    -webkit-font-smoothing: antialiased; /* Forces immediate smooth font rendering on iOS */
-  }
-
-  /* Prevent text size adjustment bugs on mobile Safari/Chrome */
-  .marquee-track span {
-    display: inline-block !important;
-    font-size: 1.5rem !important; /* Scalable default for desktop */
-  }
-
-  /* Mobile override forced immediately */
-  @media screen and (max-width: 768px) {
-    .marquee-track span {
-      font-size: 1.6rem !important; /* Scalable size for mobile screens */
-      line-height: 2 !important;
-    }
   }
 </style>
 
+<!-- Added styles directly to the section to kill any default spacing -->
 <section style="margin-top: 0 !important; padding-top: 0 !important;">
-  <!-- Removed aria-hidden="true" to prevent mobile render skips -->
-  <div class="marquee">
+  <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span>Badbushka</span><br>
       <span>Cjiro</span><br>
