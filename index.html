@@ -159,7 +159,7 @@ body {
 </section>
 
 <style>
-  /* Resets the outer container so it takes up proper space */
+  /* Reset outer container */
   .marquee {
     display: flex !important;
     justify-content: center !important;
@@ -171,7 +171,7 @@ body {
     margin-top: 0 !important;        
   }
 
-  /* Resets the track so it pushes page content down */
+  /* Force layout rendering immediately */
   .marquee-track {
     animation: none !important;        
     white-space: normal !important;    
@@ -180,21 +180,29 @@ body {
     width: 100% !important;
     margin: 0 auto !important;       
     padding-top: 0 !important;       
-    line-height: 1.8; 
+    line-height: 1.8 !important; 
     position: relative !important;   
+    -webkit-font-smoothing: antialiased; /* Forces immediate smooth font rendering on iOS */
   }
 
-  /* --- NEW: Mobile Font Size --- */
-  @media (max-width: 768px) {
+  /* Prevent text size adjustment bugs on mobile Safari/Chrome */
+  .marquee-track span {
+    display: inline-block !important;
+    font-size: 1.5rem !important; /* Scalable default for desktop */
+  }
+
+  /* Mobile override forced immediately */
+  @media screen and (max-width: 768px) {
     .marquee-track span {
-      font-size: 30px !important; /* Change this number to adjust mobile size */
-      line-height: 2;             /* Gives the larger text room to breathe */
+      font-size: 1.6rem !important; /* Scalable size for mobile screens */
+      line-height: 2 !important;
     }
   }
 </style>
 
 <section style="margin-top: 0 !important; padding-top: 0 !important;">
-  <div class="marquee" aria-hidden="true">
+  <!-- Removed aria-hidden="true" to prevent mobile render skips -->
+  <div class="marquee">
     <div class="marquee-track">
       <span>Badbushka</span><br>
       <span>Cjiro</span><br>
