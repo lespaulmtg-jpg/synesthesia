@@ -62,11 +62,11 @@ body {
   }
   .display .alt { color:var(--accent); transition:color .2s; }
   h1.wordmark {
-      width: min(94vw, 640); 
-      height: clamp(7rem, 30vw, 19rem); 
+      width: min(104vw, 1200px); 
+      height: clamp(7rem, 30vw, 25rem); 
       margin: 0 auto;
       
-      background: url("logo.png") center/contain no-repeat;
+      background: url("logo.gif") center/contain no-repeat;
       
       transform: perspective(900px) scale(var(--pulse, 1)) rotateX(var(--sway, 0deg));
       will-change: transform;
@@ -189,7 +189,7 @@ body {
 
 <section>
   <div>
-    <p class="eyebrow">Artists and workshops</p>
+    <!-- <p class="eyebrow">Artists and workshops</p> -->
     <h2 class="display">The lineup <span class="alt">is growing.</span></h2>
   </div>
 </section>
@@ -231,7 +231,14 @@ body {
 
 <section style="margin-top: 0 !important; padding-top: 0 !important;">
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
+    <div class="marquee-track"> 
+      <!-- Visual Artists -->
+      <p class="eyebrow" style="text-decoration: underline; text-underline-offset: 6px;">Visual Aritsts</p>
+      <span>Alise</span><br>
+      <span>GAK</span><br><br><br><br>
+
+      <!-- Musical Artists -->
+      <p class="eyebrow" style="text-decoration: underline; text-underline-offset: 6px;">Musical Aritsts & Workshops</p>
       <span>Badbushka</span><br>
       <span>Cjro</span><br>
       <span>Chris Herms</span><br>
